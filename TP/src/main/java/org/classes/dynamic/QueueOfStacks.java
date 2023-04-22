@@ -10,9 +10,9 @@ public class QueueOfStacks extends Queue{
         for(int i=0;i<n;i++){
             Stack stack = new Stack();
             for(int j=0;j<n;j++){
-                stack.add(new Node<Integer>(random.nextInt(9),null));
+                stack.add(random.nextInt(9));
             }
-            this.add(new Node(stack,null));
+            this.add(stack);
         }
     }
 }

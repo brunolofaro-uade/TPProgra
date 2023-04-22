@@ -6,11 +6,9 @@ public class Main {
         QueueOfStacks queueOfStacks = new QueueOfStacks(3);
         //print queueOfStacks
         while(!queueOfStacks.isEmpty()) {
-            Node queueNode = (Node) queueOfStacks.getFirst().getValue();
-            Stack stack = (Stack) queueNode.getValue();
+            Stack stack = (Stack) queueOfStacks.getFirst().getValue();
             while(!stack.isEmpty()){
-                Node stackNode = (Node) stack.getTop().getValue();
-                int node1Val = (Integer) stackNode.getValue();
+                int node1Val = (Integer) stack.getTop().getValue();
                 System.out.println(node1Val);
                 stack.remove();
             }
