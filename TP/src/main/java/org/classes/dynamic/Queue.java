@@ -2,7 +2,7 @@ package org.classes.dynamic;
 
 import org.classes.definition.IQueue;
 
-public class Queue <T> implements IQueue {
+public class Queue implements IQueue {
 
     private Node first;
 
@@ -35,11 +35,11 @@ public class Queue <T> implements IQueue {
     }
 
     @Override
-    public T getFirst() throws Exception {
+    public Node getFirst() throws Exception {
         if(this.first == null) {
             System.out.println("No se puede obtener el tope una cola vacia");
             throw new Exception();
         }
-        return (T) this.first.getValue();
+        return this.first;
     }
 }
