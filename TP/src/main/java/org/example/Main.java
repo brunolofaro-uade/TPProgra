@@ -4,16 +4,12 @@ import org.classes.dynamic.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         QueueOfStacks queueOfStacks = new QueueOfStacks(3);
+        printQueueOfStacks(queueOfStacks);
         System.out.println(trace(queueOfStacks,3));
-        //print queueOfStacks
-        while(!queueOfStacks.isEmpty()) {
-            Stack stack = (Stack) queueOfStacks.getFirst().getValue();
-            printStack(stack);
-            System.out.println("\n");
-            queueOfStacks.remove();
-        }
+        printQueueOfStacks(queueOfStacks);
     }
 
+    //TODO: Make not destructive.
     static int trace(QueueOfStacks queueOfStacks, int dimensions) throws Exception {
         int acum = 0;
         Queue tempQueueOfStacks = new Queue();
@@ -57,6 +53,22 @@ public class Main {
         {
             int value = (int) temp.getTop().getValue();
             stack.add(value);
+            temp.remove();
+        }
+    }
+    static void printQueueOfStacks(QueueOfStacks queueOfStacks) throws Exception {
+        Queue temp = new Queue();
+        while(!queueOfStacks.isEmpty()) {
+            Stack stack = (Stack) queueOfStacks.getFirst().getValue();
+            printStack(stack);
+            System.out.println("\n");
+            temp.add(stack);
+            queueOfStacks.remove();
+        }
+        while(!temp.isEmpty())
+        {
+            Stack stack = (Stack) temp.getFirst().getValue();
+            queueOfStacks.add(stack);
             temp.remove();
         }
     }
