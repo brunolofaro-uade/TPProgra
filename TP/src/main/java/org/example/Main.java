@@ -8,10 +8,7 @@ public class Main {
         //print queueOfStacks
         while(!queueOfStacks.isEmpty()) {
             Stack stack = (Stack) queueOfStacks.getFirst().getValue();
-            while(!stack.isEmpty()){
-                System.out.println((Integer) stack.getTop().getValue());
-                stack.remove();
-            }
+            printStack(stack);
             System.out.println("\n");
             queueOfStacks.remove();
         }
