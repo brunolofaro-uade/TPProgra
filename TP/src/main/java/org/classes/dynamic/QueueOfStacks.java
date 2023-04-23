@@ -2,7 +2,7 @@ package org.classes.dynamic;
 import java.util.Random;
 
 public class QueueOfStacks extends Queue{
-    int n;
+    private int n;
     public QueueOfStacks(int n){
         this.n = n;
         Random random = new Random();

@@ -15,4 +15,26 @@ public class Main {
             queueOfStacks.remove();
         }
     }
+
+    //destructiva
+    static int trace(QueueOfStacks queueOfStacks, int dimensions) throws Exception {
+        int acum = 0;
+        Queue tempQueueOfStacks = new Queue();
+        for (int i = 0; i < dimensions; i++) {
+            while (!queueOfStacks.isEmpty()) {
+                Stack stack = (Stack) queueOfStacks.getFirst().getValue();
+                tempQueueOfStacks = new Queue(); //store the stacks in a temp queue to restore them.
+                tempQueueOfStacks.add(stack);
+                while (!stack.isEmpty()) {
+                    //acum+=getElementInNPosition(queueOfStacks, i);
+                }
+                queueOfStacks.remove();
+            }
+            while(!tempQueueOfStacks.isEmpty()){
+            queueOfStacks.add(tempQueueOfStacks.getFirst());//restore the stacks
+                tempQueueOfStacks.remove();
+            }
+        }
+        return acum;
+    }
 }
