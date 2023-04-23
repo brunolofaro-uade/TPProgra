@@ -9,7 +9,7 @@ public class Main {
         printQueueOfStacks(queueOfStacks);
     }
 
-    //TODO: Make not destructive.
+    //TODO: Make non destructive.
     static int trace(QueueOfStacks queueOfStacks, int dimensions) throws Exception {
         int acum = 0;
         Queue tempQueueOfStacks = new Queue();
