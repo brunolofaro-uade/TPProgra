@@ -4,11 +4,11 @@ import org.classes.definition.IStack;
 
 public class Stack implements IStack {
 
-    private Node first;
+    private Node<T> first;
 
     @Override
     public void add(Object a) {
-        this.first = new Node(a, this.first);
+        this.first = new Node<T>((T)a, this.first);
     }
 
     @Override

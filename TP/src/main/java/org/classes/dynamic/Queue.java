@@ -8,7 +8,7 @@ public class Queue implements IQueue {
 
     @Override
     public void add(Object a) {
-        Node node = new Node(a, null);
+        Node node = new Node<T>((T) a, null);
         if(this.first == null) {
             this.first = node;
             return;
