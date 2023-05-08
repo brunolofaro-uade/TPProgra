@@ -6,7 +6,7 @@ public class Main {
         QueueOfStacks queueOfStacks = new QueueOfStacks(3);
         printQueueOfStacks(queueOfStacks);
         System.out.println(trace(queueOfStacks,3));
-        printQueueOfStacks(queueOfStacks);
+        //printQueueOfStacks(queueOfStacks);
     }
 
     //TODO: Make non destructive.

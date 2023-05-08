@@ -2,7 +2,7 @@ package org.classes.dynamic;
 
 import org.classes.definition.IStack;
 
-public class Stack implements IStack {
+public class Stack <T> implements IStack {
 
     private Node<T> first;
 

@@ -2,7 +2,7 @@ package org.classes.dynamic;
 
 import org.classes.definition.IQueue;
 
-public class Queue implements IQueue {
+public class Queue <T> implements IQueue {
 
     private Node first;
 
