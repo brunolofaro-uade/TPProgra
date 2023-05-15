@@ -6,9 +6,28 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) throws Exception {
         QueueOfStacks<Integer> queueOfStacks = new QueueOfStacks(2);
+        PopulateStacks(queueOfStacks,3);
         printQueueOfStacks(queueOfStacks);
-        System.out.println(trace(queueOfStacks,3));
-        printQueueOfStacks(queueOfStacks);
+        //System.out.println(trace(queueOfStacks,3));
+        //printQueueOfStacks(queueOfStacks);
+    }
+
+    public static <T> void PopulateStacks(QueueOfStacks<T> queueOfStacks, int n) throws Exception {
+        QueueOfStacks<T> tmpQueueOfStacks = new QueueOfStacks<T>(queueOfStacks.getN());
+        while(!queueOfStacks.isEmpty()){
+            Stack<Integer> stack = (Stack) queueOfStacks.getFirst().getValue();
+            for(int i = 0; i<n; i++){
+                Random random = new Random();
+                stack.add(random.nextInt(9));
+            }
+            tmpQueueOfStacks.add(stack);
+            queueOfStacks.remove();
+        }
+        while(!tmpQueueOfStacks.isEmpty()){
+            Stack<T> stack = (Stack) tmpQueueOfStacks.getFirst().getValue();
+            queueOfStacks.add(stack);
+            tmpQueueOfStacks.remove();
+        }
     }
 
     //TODO: Make non destructive.
