@@ -1,12 +1,14 @@
 package org.example;
 import org.classes.dynamic.*;
 
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) throws Exception {
-        QueueOfStacks queueOfStacks = new QueueOfStacks(3);
+        QueueOfStacks<Integer> queueOfStacks = new QueueOfStacks(2);
         printQueueOfStacks(queueOfStacks);
         System.out.println(trace(queueOfStacks,3));
-        //printQueueOfStacks(queueOfStacks);
+        printQueueOfStacks(queueOfStacks);
     }
 
     //TODO: Make non destructive.
