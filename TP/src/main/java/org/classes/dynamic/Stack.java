@@ -2,12 +2,12 @@ package org.classes.dynamic;
 
 import org.classes.definition.IStack;
 
-public class Stack <T> implements IStack {
+public class Stack <T> implements IStack<T> {
 
     private Node<T> first;
 
     @Override
-    public void add(Object a) {
+    public void add(T a) {
         this.first = new Node<T>((T)a, this.first);
     }
 
@@ -26,11 +26,11 @@ public class Stack <T> implements IStack {
     }
 
     @Override
-    public T getTop() throws Exception {
+    public Node<T> getTop() throws Exception {
         if(this.first == null) {
             System.out.println("No se puede obtener el tope una pila vacia");
             throw new Exception();
         }
-        return (T) this.first.getValue();
+        return this.first;
     }
 }

@@ -1,5 +1,7 @@
 package org.classes.definition;
 
+import org.classes.dynamic.Node;
+
 /**
  * Precondicion: para usar cualquier de estos metodos la estructura debe estar inicializada.
  */
@@ -25,6 +27,6 @@ public interface IStack <T> {
     /**
      * @return Devuelve el tope.
      */
-    T getTop() throws Exception;
+    Node getTop() throws Exception;
 
 }

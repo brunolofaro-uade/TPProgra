@@ -2,18 +2,18 @@ package org.classes.dynamic;
 
 import org.classes.definition.IQueue;
 
-public class Queue <T> implements IQueue {
+public class Queue <T> implements IQueue<T> {
 
-    private Node first;
+    private Node<T> first;
 
     @Override
-    public void add(Object a) {
-        Node node = new Node<T>((T) a, null);
+    public void add(T a) {
+        Node<T> node = new Node<T>((T) a, null);
         if(this.first == null) {
             this.first = node;
             return;
         }
-        Node candidate = this.first;
+        Node<T> candidate = this.first;
         while(candidate.getNext() != null) {
             candidate = candidate.getNext();
         }
@@ -35,11 +35,11 @@ public class Queue <T> implements IQueue {
     }
 
     @Override
-    public T getFirst() throws Exception {
+    public Node<T> getFirst() throws Exception {
         if(this.first == null) {
             System.out.println("No se puede obtener el tope una cola vacia");
             throw new Exception();
         }
-        return (T) this.first.getValue();
+        return this.first;
     }
 }
