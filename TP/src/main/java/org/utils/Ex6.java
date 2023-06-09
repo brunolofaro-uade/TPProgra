@@ -2,21 +2,32 @@ package org.utils;
 import org.classes.statics.Coordinate;
 import org.classes.statics.Montecarlo;
 import org.classes.statics.Coordinate;
+
+import java.util.Random;
+
 public class Ex6 {
     public static void Excercise6(){
-        Coordinate delimiter = new Coordinate(5.0, 5.0);
+        Coordinate delimiter = new Coordinate(7.0, 7.0);
         Montecarlo montecarlo = new Montecarlo(delimiter);
 
-        Coordinate c1 = new Coordinate(2.0, 3.0);
-        Coordinate c5 = new Coordinate(2.0, 3.0);
-        Coordinate c2 = new Coordinate(6.0, 4.0);
-        Coordinate c3 = new Coordinate(1.0, 6.0);
+        Random random = new Random();
 
-        montecarlo.addCoordinate(c1);
-        montecarlo.addCoordinate(c2);
-        montecarlo.addCoordinate(c3);
-        montecarlo.addCoordinate(c5);
+        int totalDots = 1000;
+        int dotsInside = 0;
 
-        System.out.println("Stored Coordinates: " + montecarlo.getNumberOfCoordinates());
+        for (int i = 0; i < totalDots; i++) {
+            double x = random.nextDouble() * delimiter.getX();
+            double y = random.nextDouble() * delimiter.getY();
+            Coordinate coordinate = new Coordinate(x, y);
+            montecarlo.addCoordinate(coordinate);
+
+            if (coordinate.getX() * coordinate.getX() + coordinate.getY() * coordinate.getY() <=
+                    delimiter.getX() * delimiter.getX()) {
+                dotsInside++;
+            }
+        }
+
+        double piApproximation = (dotsInside / (double) totalDots) * 4;
+        System.out.println("Approximation of Pi: " + piApproximation);
     }
 }
