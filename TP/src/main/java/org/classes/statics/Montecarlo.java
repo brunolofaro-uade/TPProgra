@@ -17,4 +17,8 @@ public class Montecarlo {
             coordinates.add(coordinate);
         }
     }
+
+    public int getNumberOfCoordinates(){
+        return this.coordinates.size();
+    }
 }
