@@ -7,19 +7,18 @@ import org.classes.dynamic.Stack;
 import java.util.Random;
 
 public class Ex1 {
-    public static void ex1() throws Exception {
+    public static void Excercise1() throws Exception {
         int dimentions = 3;
         QueueOfStacks<Integer> queueOfStacks = new QueueOfStacks(dimentions);
         PopulateStacks(queueOfStacks,dimentions);
-        QueueOfStacks<Integer> copy = new QueueOfStacks<>(dimentions);
+        QueueOfStacks<Integer> copy = new QueueOfStacks<>(0);
         queueOfStacks.copy(copy);
         printQueueOfStacks(queueOfStacks);
-        //printQueueOfStacks(copy);
         System.out.println("the trace is :" + trace(copy,dimentions));
     }
 
     public static <T> void PopulateStacks(QueueOfStacks<T> queueOfStacks, int n) throws Exception {
-        QueueOfStacks<T> tmpQueueOfStacks = new QueueOfStacks<T>(queueOfStacks.getN());
+        QueueOfStacks<T> tmpQueueOfStacks = new QueueOfStacks<T>(0);
         while(!queueOfStacks.isEmpty()){
             Stack<Integer> stack = (Stack) queueOfStacks.getFirst().getValue();
             for(int i = 0; i<n; i++){
