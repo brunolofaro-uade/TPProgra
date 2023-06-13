@@ -16,7 +16,7 @@ public class Ex1 {
         QueueOfStacks<Integer> queueOfStacks2 = new QueueOfStacks(dimentions);
         QueueOfStacks<Integer> result = new QueueOfStacks(dimentions);
         PopulateStacks(queueOfStacks1,dimentions);
-        /*PopulateStacks(queueOfStacks2,dimentions);
+        PopulateStacks(queueOfStacks2,dimentions);
         QueueOfStacks<Integer> copy = new QueueOfStacks<>(0);
         queueOfStacks1.copy(copy);
         System.out.println("queueOfStacks1");
@@ -25,7 +25,7 @@ public class Ex1 {
         printQueueOfStacks(queueOfStacks2);
         System.out.println("sum");
         printQueueOfStacks(matrixSum(queueOfStacks1,queueOfStacks2));
-        System.out.println("the trace is :" + trace(copy,dimentions));*/
+        System.out.println("the trace is :" + trace(copy,dimentions));
         printQueueOfStacks(queueOfStacks1);
         System.out.println("the transpose is :");
         printQueueOfStacks(transpose(queueOfStacks1));
