@@ -114,6 +114,8 @@ public class Ex1 {
         //recorro las queues
         do{
             Stack sumStack = new Stack();
+            Stack<Integer> tmpStack1 = new Stack<Integer>();
+            Stack<Integer> tmpStack2 = new Stack<Integer>();
             Stack stack1 = new Stack();
             //recorro los stacks
             do{
@@ -121,12 +123,18 @@ public class Ex1 {
                 node2 = matrix2.getFirst();
                 stack1 = node1.getValue();
                 Stack stack2 = node2.getValue();
-                int num1 = (Integer) stack1.getTop().getValue();//get the integer inside the stack Node
-                int num2 = (Integer) stack2.getTop().getValue();
-                sumStack.add(num1+num2);
+                tmpStack1.add((Integer)stack1.getTop().getValue());//get the integer inside the stack Node
+                tmpStack2.add((Integer)stack2.getTop().getValue());//get the integer inside the stack Node
                 stack1.remove();
                 stack2.remove();
             }while(!stack1.isEmpty());
+            do{//fix the order of the elements in the stack
+                int num1 = tmpStack1.getTop().getValue();
+                int num2 = tmpStack2.getTop().getValue();
+                tmpStack1.remove();
+                tmpStack2.remove();
+                sumStack.add( num1 + num2 );
+            }while(!tmpStack1.isEmpty());
             sumQueueOfStacks.add(sumStack);
             matrix1.remove();
             matrix2.remove();
