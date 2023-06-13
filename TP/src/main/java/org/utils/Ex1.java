@@ -1,5 +1,6 @@
 package org.utils;
 
+import org.classes.dynamic.Node;
 import org.classes.dynamic.Queue;
 import org.classes.dynamic.QueueOfStacks;
 import org.classes.dynamic.Stack;
@@ -9,12 +10,20 @@ import java.util.Random;
 public class Ex1 {
     public static void Excercise1() throws Exception {
         int dimentions = 3;
-        QueueOfStacks<Integer> queueOfStacks = new QueueOfStacks(dimentions);
-        PopulateStacks(queueOfStacks,dimentions);
+        QueueOfStacks<Integer> queueOfStacks1 = new QueueOfStacks(dimentions);
+        QueueOfStacks<Integer> queueOfStacks2 = new QueueOfStacks(dimentions);
+        QueueOfStacks<Integer> result = new QueueOfStacks(dimentions);
+        PopulateStacks(queueOfStacks1,dimentions);
+        PopulateStacks(queueOfStacks2,dimentions);
         QueueOfStacks<Integer> copy = new QueueOfStacks<>(0);
-        queueOfStacks.copy(copy);
-        printQueueOfStacks(queueOfStacks);
-        System.out.println("the trace is :" + trace(copy,dimentions));
+        queueOfStacks1.copy(copy);
+        System.out.println("queueOfStacks1");
+        printQueueOfStacks(queueOfStacks1);
+        System.out.println("queueOfStacks2");
+        printQueueOfStacks(queueOfStacks2);
+        System.out.println("sum");
+        printQueueOfStacks(matrixSum(queueOfStacks1,queueOfStacks2));
+        //System.out.println("the trace is :" + trace(copy,dimentions));
     }
 
     public static <T> void PopulateStacks(QueueOfStacks<T> queueOfStacks, int n) throws Exception {
@@ -87,7 +96,7 @@ public class Ex1 {
         while(!queueOfStacks.isEmpty()) {
             Stack stack = (Stack) queueOfStacks.getFirst().getValue();
             printStack(stack);
-            System.out.println("\n");
+            System.out.println();
             temp.add(stack);
             queueOfStacks.remove();
         }
@@ -97,5 +106,39 @@ public class Ex1 {
             queueOfStacks.add(stack);
             temp.remove();
         }
+    }
+    public static QueueOfStacks<Integer> matrixSum(QueueOfStacks<Integer> matrix1, QueueOfStacks<Integer> matrix2) throws Exception {
+        QueueOfStacks sumQueueOfStacks = new QueueOfStacks(0);
+        Node<Stack<Integer>> node1 = matrix1.getFirst();
+        Node<Stack<Integer>> node2 = matrix2.getFirst();
+        //recorro las queues
+        do{
+            Stack sumStack = new Stack();
+            Stack<Integer> tmpStack1 = new Stack<Integer>();
+            Stack<Integer> tmpStack2 = new Stack<Integer>();
+            Stack stack1 = new Stack();
+            //recorro los stacks
+            do{
+                node1 = matrix1.getFirst();//get the next stack in the queue
+                node2 = matrix2.getFirst();
+                stack1 = node1.getValue();
+                Stack stack2 = node2.getValue();
+                tmpStack1.add((Integer)stack1.getTop().getValue());//get the integer inside the stack Node
+                tmpStack2.add((Integer)stack2.getTop().getValue());//get the integer inside the stack Node
+                stack1.remove();
+                stack2.remove();
+            }while(!stack1.isEmpty());
+            do{//fix the order of the elements in the stack
+                int num1 = tmpStack1.getTop().getValue();
+                int num2 = tmpStack2.getTop().getValue();
+                tmpStack1.remove();
+                tmpStack2.remove();
+                sumStack.add( num1 + num2 );
+            }while(!tmpStack1.isEmpty());
+            sumQueueOfStacks.add(sumStack);
+            matrix1.remove();
+            matrix2.remove();
+        }while(!matrix1.isEmpty());
+        return sumQueueOfStacks;
     }
 }
