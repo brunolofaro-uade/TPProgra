@@ -5,6 +5,8 @@ import org.classes.dynamic.Queue;
 import org.classes.dynamic.QueueOfStacks;
 import org.classes.dynamic.Stack;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Ex1 {
@@ -14,7 +16,7 @@ public class Ex1 {
         QueueOfStacks<Integer> queueOfStacks2 = new QueueOfStacks(dimentions);
         QueueOfStacks<Integer> result = new QueueOfStacks(dimentions);
         PopulateStacks(queueOfStacks1,dimentions);
-        PopulateStacks(queueOfStacks2,dimentions);
+        /*PopulateStacks(queueOfStacks2,dimentions);
         QueueOfStacks<Integer> copy = new QueueOfStacks<>(0);
         queueOfStacks1.copy(copy);
         System.out.println("queueOfStacks1");
@@ -23,7 +25,10 @@ public class Ex1 {
         printQueueOfStacks(queueOfStacks2);
         System.out.println("sum");
         printQueueOfStacks(matrixSum(queueOfStacks1,queueOfStacks2));
-        //System.out.println("the trace is :" + trace(copy,dimentions));
+        System.out.println("the trace is :" + trace(copy,dimentions));*/
+        printQueueOfStacks(queueOfStacks1);
+        System.out.println("the transpose is :");
+        printQueueOfStacks(transpose(queueOfStacks1));
     }
 
     public static <T> void PopulateStacks(QueueOfStacks<T> queueOfStacks, int n) throws Exception {
@@ -140,5 +145,37 @@ public class Ex1 {
             matrix2.remove();
         }while(!matrix1.isEmpty());
         return sumQueueOfStacks;
+    }
+
+    public static QueueOfStacks<Integer> transpose(QueueOfStacks<Integer> matrix1) throws Exception {
+        int dimentions = matrix1.getN();
+        //Stack<Integer> auxStack = new Stack();
+        Stack[] stackArr = new Stack[dimentions];
+        QueueOfStacks transposeQueueOfStacks = new QueueOfStacks<>(0);
+        Node<Stack<Integer>> node1 = matrix1.getFirst();
+        Stack<Integer> tmpStack = new Stack<Integer>();
+        int i = 0;
+        do{
+            node1 = matrix1.getFirst();//get the next stack in the queue
+            tmpStack = node1.getValue();
+            stackArr[i] = tmpStack;
+            i++;
+            matrix1.remove();
+        }while(!matrix1.isEmpty());
+        for(i=0; i<dimentions;i++){
+        Stack auxStack = new Stack();
+        Stack tmpStack2 = new Stack();
+            for(int j=0; j<dimentions;j++){
+                int n = (int) stackArr[j].getTop().getValue();
+                stackArr[j].remove();
+                auxStack.add(n);
+            }
+            do{
+                tmpStack2.add(auxStack.getTop().getValue());
+                auxStack.remove();
+            }while(!auxStack.isEmpty());
+            transposeQueueOfStacks.add(tmpStack2);
+        }
+        return transposeQueueOfStacks;
     }
 }
