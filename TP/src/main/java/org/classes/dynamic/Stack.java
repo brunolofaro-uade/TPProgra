@@ -5,19 +5,25 @@ import org.classes.definition.IStack;
 public class Stack <T> implements IStack<T> {
 
     private Node<T> first;
-
+    private int size;
+    public Stack(){
+        this.first = null;
+        this.size = 0;
+    }
     @Override
     public void add(T a) {
         this.first = new Node<T>((T)a, this.first);
+        this.size++;
     }
 
     @Override
     public void remove() {
-        if(this.first == null) {
+        if(this.first == null || this.size == 0) {
             System.out.println("No se puede desapilar una pila vacia");
             return;
         }
         this.first = this.first.getNext();
+        this.size--;
     }
 
     @Override
@@ -32,5 +38,9 @@ public class Stack <T> implements IStack<T> {
             throw new Exception();
         }
         return this.first;
+    }
+
+    public int getSize() {
+        return this.size;
     }
 }
