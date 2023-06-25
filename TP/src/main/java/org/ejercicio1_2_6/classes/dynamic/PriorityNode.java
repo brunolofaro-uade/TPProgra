@@ -1,4 +1,4 @@
-package org.classes.dynamic;
+package org.ejercicio1_2_6.classes.dynamic;
 public class PriorityNode<T> {
 
     private T value;

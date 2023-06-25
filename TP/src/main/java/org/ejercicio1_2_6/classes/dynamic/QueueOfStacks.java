@@ -1,4 +1,4 @@
-package org.classes.dynamic;
+package org.ejercicio1_2_6.classes.dynamic;
 import java.util.Random;
 
 public class QueueOfStacks<T> extends Queue{
