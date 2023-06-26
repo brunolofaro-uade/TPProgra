@@ -1,9 +1,9 @@
-package org.utils;
+package org.ejercicio1_2_6.utils;
 
-import org.classes.dynamic.Node;
-import org.classes.dynamic.Queue;
-import org.classes.dynamic.QueueOfStacks;
-import org.classes.dynamic.Stack;
+import org.ejercicio1_2_6.classes.dynamic.Node;
+import org.ejercicio1_2_6.classes.dynamic.Queue;
+import org.ejercicio1_2_6.classes.dynamic.QueueOfStacks;
+import org.ejercicio1_2_6.classes.dynamic.Stack;
 
 import java.util.List;
 import java.util.Objects;

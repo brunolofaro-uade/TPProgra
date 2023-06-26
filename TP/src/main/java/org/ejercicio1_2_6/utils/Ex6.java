@@ -1,8 +1,7 @@
-package org.utils;
-import org.classes.dynamic.Stack;
-import org.classes.statics.Coordinate;
-import org.classes.statics.Montecarlo;
-import org.classes.statics.Coordinate;
+package org.ejercicio1_2_6.utils;
+import org.ejercicio1_2_6.classes.dynamic.Stack;
+import org.ejercicio1_2_6.classes.statics.Coordinate;
+import org.ejercicio1_2_6.classes.statics.Montecarlo;
 
 import java.util.Arrays;
 import java.util.Random;

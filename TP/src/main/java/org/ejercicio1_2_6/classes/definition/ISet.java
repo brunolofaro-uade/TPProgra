@@ -1,4 +1,4 @@
-package org.classes.definition;
+package org.ejercicio1_2_6.classes.definition;
 
 public interface ISet<T> {
 
