@@ -1,4 +1,4 @@
-package org.ejercicio1_2_6.classes.statics;
+package org.ejercicio1_2_5.classes.statics;
 import java.util.ArrayList;
 import java.util.List;
 

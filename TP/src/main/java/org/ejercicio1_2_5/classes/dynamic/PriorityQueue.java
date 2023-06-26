@@ -1,4 +1,4 @@
-package org.ejercicio1_2_6.classes.dynamic;
+package org.ejercicio1_2_5.classes.dynamic;
 public class PriorityQueue<T> {
 
     private PriorityNode<T> first;

@@ -1,10 +1,10 @@
-package org.ejercicio1_2_6.utils;
+package org.ejercicio1_2_5.utils;
 
-import org.ejercicio1_2_6.classes.dynamic.PriorityQueue;
-import org.ejercicio1_2_6.classes.dynamic.Set;
-import org.ejercicio1_2_6.classes.dynamic.Stack;
+import org.ejercicio1_2_5.classes.dynamic.PriorityQueue;
+import org.ejercicio1_2_5.classes.dynamic.Set;
+import org.ejercicio1_2_5.classes.dynamic.Stack;
 
-import static org.ejercicio1_2_6.utils.Ex1.printStack;
+import static org.ejercicio1_2_5.utils.Ex1.printStack;
 
 public class Ex2 {
     public static void Excercise2() throws Exception {

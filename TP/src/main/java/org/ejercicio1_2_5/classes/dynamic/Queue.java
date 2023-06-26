@@ -1,6 +1,6 @@
-package org.ejercicio1_2_6.classes.dynamic;
+package org.ejercicio1_2_5.classes.dynamic;
 
-import org.ejercicio1_2_6.classes.definition.IQueue;
+import org.ejercicio1_2_5.classes.definition.IQueue;
 
 public class Queue <T> implements IQueue<T> {
 

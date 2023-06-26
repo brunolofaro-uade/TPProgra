@@ -1,6 +1,6 @@
-package org.ejercicio1_2_6.classes.definition;
+package org.ejercicio1_2_5.classes.definition;
 
-import org.ejercicio1_2_6.classes.dynamic.Node;
+import org.ejercicio1_2_5.classes.dynamic.Node;
 
 /**
  * Precondicion: para usar cualquier de estos metodos la estructura debe estar inicializada.

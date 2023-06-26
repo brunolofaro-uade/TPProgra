@@ -1,6 +1,6 @@
-package org.ejercicio1_2_6.classes.dynamic;
+package org.ejercicio1_2_5.classes.dynamic;
 
-import org.ejercicio1_2_6.classes.definition.IStack;
+import org.ejercicio1_2_5.classes.definition.IStack;
 
 public class Stack <T> implements IStack<T> {
 

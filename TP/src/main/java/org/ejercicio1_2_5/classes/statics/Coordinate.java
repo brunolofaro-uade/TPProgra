@@ -1,4 +1,4 @@
-package org.ejercicio1_2_6.classes.statics;
+package org.ejercicio1_2_5.classes.statics;
 
 public class Coordinate {
     private double x;

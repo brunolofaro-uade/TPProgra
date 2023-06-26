@@ -1,13 +1,12 @@
-package org.ejercicio1_2_6.utils;
-import org.ejercicio1_2_6.classes.dynamic.Stack;
-import org.ejercicio1_2_6.classes.statics.Coordinate;
-import org.ejercicio1_2_6.classes.statics.Montecarlo;
+package org.ejercicio1_2_5.utils;
+import org.ejercicio1_2_5.classes.dynamic.Stack;
+import org.ejercicio1_2_5.classes.statics.Coordinate;
+import org.ejercicio1_2_5.classes.statics.Montecarlo;
 
-import java.util.Arrays;
 import java.util.Random;
 
-public class Ex6 {
-    public static void Excercise6() throws Exception {
+public class Ex5 {
+    public static void Excercise5() throws Exception {
         Stack<Integer> stack = new Stack<>();
         stack.add(5);
         stack.add(2);

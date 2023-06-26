@@ -1,5 +1,5 @@
-package org.ejercicio1_2_6.classes.dynamic;
-import org.ejercicio1_2_6.classes.definition.ISet;
+package org.ejercicio1_2_5.classes.dynamic;
+import org.ejercicio1_2_5.classes.definition.ISet;
 
 import java.util.Objects;
 import java.util.Random;
