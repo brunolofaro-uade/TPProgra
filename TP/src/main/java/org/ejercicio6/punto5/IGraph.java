@@ -26,9 +26,9 @@ public interface IGraph {
      * Precondicion: No existe la arista pero existen los nodos.
      * @param from, nodo del cual sale la arista.
      * @param to, nodo al cual llega la arista.
-     * @param weight, peso de la arista.
+     * @param probability, probabilidad de la arista.
      */
-    void addEdge(int from, int to, int weight);
+    void addEdge(int from, int to, double probability);
 
     /**
      * Precondicion: Existe la arista
@@ -51,6 +51,6 @@ public interface IGraph {
      * @param to, nodo al cual llega la arista.
      * @return peso de la arista.
      */
-    int weight(int from, int to);
+    double probability(int from, int to);
 
 }

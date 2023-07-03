@@ -4,12 +4,12 @@ public class Graph implements IGraph {
 
     private static final int MAX_NODES = 15;
 
-    private final int[][] adjacencyMatrix;
+    private final double[][] adjacencyMatrix;
     private final IDictionary dictionary;
     private int totalNodes;
 
     public Graph() {
-        this.adjacencyMatrix = new int[MAX_NODES][MAX_NODES];
+        this.adjacencyMatrix = new double[MAX_NODES][MAX_NODES];
         this.dictionary = new Dictionary(); // Asumo que el límite es mayor a MAX_NODES
         this.totalNodes = 0;
     }
@@ -80,9 +80,13 @@ public class Graph implements IGraph {
     }
 
     @Override
-    public void addEdge(int from, int to, int weight) {
+    public void addEdge(int from, int to, double probability) {
         if(this.notIn(from) || this.notIn(to)) {
             throw new RuntimeException("No existe alguno de los nodos");
+        }
+
+        if (probability < 0.0 || probability > 1.0) {
+            throw new IllegalArgumentException("La probabilidad debe estar entre 0 y 1");
         }
 
         int indexFrom = this.dictionary.getValue(from);
@@ -92,7 +96,7 @@ public class Graph implements IGraph {
             throw new RuntimeException("Ya existe la arista");
         }
 
-        this.adjacencyMatrix[indexFrom][indexTo] = weight;
+        this.adjacencyMatrix[indexFrom][indexTo] = probability;
     }
 
     private boolean notIn(int node) {
@@ -132,7 +136,7 @@ public class Graph implements IGraph {
     }
 
     @Override
-    public int weight(int from, int to) {
+    public double probability(int from, int to) {
         if(!edgeExists(from, to)) {
             throw new RuntimeException("No existe la arista");
         }
